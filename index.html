@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,6 +17,7 @@
                 opacity: 0;
                 transform: translateY(20px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -27,6 +29,7 @@
                 transform: scale(0.9);
                 opacity: 0;
             }
+
             to {
                 transform: scale(1);
                 opacity: 1;
@@ -174,7 +177,7 @@
             user-select: none;
         }
 
-        .chidianhaode{
+        .chidianhaode {
             display: flex;
             align-items: center;
             justify-content: center;
@@ -183,6 +186,7 @@
             font-size: 18px;
             transition: color 0.3s ease;
         }
+
         body.light-mode .chidianhaode {
             color: #333;
         }
@@ -199,7 +203,7 @@
             user-select: none;
         }
 
-        .buchishitang{
+        .buchishitang {
             display: flex;
             align-items: center;
             justify-content: center;
@@ -208,6 +212,7 @@
             font-size: 18px;
             transition: color 0.3s ease;
         }
+
         body.light-mode .buchishitang {
             color: #333;
         }
@@ -225,6 +230,7 @@
         }
     </style>
 </head>
+
 <body>
     <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
     <div class="container">
@@ -251,11 +257,11 @@
             const checkbox = document.getElementById('youke');
             return checkbox.checked;
         }
-        function gethaode(){
+        function gethaode() {
             const checkbox = document.getElementById('haode');
             return checkbox.checked;
         }
-        function getshitang(){
+        function getshitang() {
             const checkbox = document.getElementById('shitang');
             return checkbox.checked;
         }
@@ -268,49 +274,104 @@
             const youkeValue = getyouke();
             const haodeValue = gethaode();
             const shitangValue = getshitang();
-            let foods;
-            if(youkeValue && haodeValue){
-                foods = [
-                    '想的倒挺美'
-                ];
-            }
-            else if(!shitangValue && haodeValue)
-            {
-                foods=[
-                    'hpc','bbq','嘎巴锅','佰兴大肘子','烤鱼','火锅','苏龙龙水煮肉片'
-                ];
-            }
-             
-            else if (youkeValue && !shitangValue) {
-                foods = [
-                    '石板','七分饱','张亮麻辣烫','干锅外卖','町上寿司','莫斯汉堡','kfc','金拱门','炸鸡','吉祥馄饨','牛培堡','必胜客','炸鸡',
-                    '小红帽','杂酱面','苏龙龙','0090','铁板小炒','煮馍','螺狮粉','冒菜','麻辣香锅','南区自选','学府面馆','清真炒鸡'
-                ];
-            } 
-            else if(youkeValue && shitangValue){
-                foods = [
-                    '石板','七分饱','张亮麻辣烫','干锅外卖','町上寿司','莫斯汉堡','kfc','金拱门','炸鸡','吉祥馄饨','牛培堡','必胜客','炸鸡',
-                ];
-            }
-            else if(haodeValue && shitangValue){
-                foods = [
-                    'hpc','bbq','嘎巴锅','佰兴大肘子','烤鱼','火锅'
-                ];
-            } 
-            else if(shitangValue)
-            {
-                foods = [
-                    'hpc','bbq','嘎巴锅','佰兴大肘子','烤鱼','火锅','石板','七分饱','张亮麻辣烫','干锅外卖','町上寿司','莫斯汉堡','kfc','金拱门','炸鸡','吉祥馄饨','牛培堡','必胜客','炸鸡',
-                '冒菜','麻辣香锅'];
+            // let foods;
+            // if (youkeValue && haodeValue) {
+            //     foods = [
+            //         '想的倒挺美'
+            //     ];
+            // }
+            // else if (!shitangValue && haodeValue) {
+            //     // 吃点好的
+            //     foods = [
+            //         'hpc', 'bbq', '嘎巴锅', '佰兴大肘子', '烤鱼', '火锅', '苏龙龙水煮肉片'
+            //     ];
+            // }
 
+            // else if (youkeValue && !shitangValue) {
+            //     // 有课
+            //     foods = [
+            //         '石板', '七分饱', '张亮麻辣烫', '干锅外卖', '町上寿司', '莫斯汉堡', 'kfc', '金拱门', '炸鸡', '吉祥馄饨', '牛培堡', '必胜客', '炸鸡',
+            //         '小红帽', '杂酱面', '苏龙龙', '0090', '铁板小炒', '煮馍', '螺狮粉', '冒菜', '麻辣香锅', '南区自选', '学府面馆', '清真炒鸡'
+            //     ];
+            // }
+            // else if (youkeValue && shitangValue) {
+            //     // 有课 不吃食堂
+            //     foods = [
+            //         '石板', '七分饱', '张亮麻辣烫', '干锅外卖', '町上寿司', '莫斯汉堡', 'kfc', '金拱门', '炸鸡', '吉祥馄饨', '牛培堡', '必胜客', '炸鸡',
+            //     ];
+            // }
+            // else if (haodeValue && shitangValue) {
+            //     // 吃点好的 不吃食堂
+            //     foods = [
+            //         'hpc', 'bbq', '嘎巴锅', '佰兴大肘子', '烤鱼', '火锅'
+            //     ];
+            // }
+            // else if (shitangValue) {
+            //     // 不吃食堂
+            //     foods = [
+            //         'hpc', 'bbq', '嘎巴锅', '佰兴大肘子', '烤鱼', '火锅', '石板', '七分饱', '张亮麻辣烫', '干锅外卖', '町上寿司', '莫斯汉堡', 'kfc', '金拱门', '炸鸡', '吉祥馄饨', '牛培堡', '必胜客', '炸鸡',
+            //         '冒菜', '麻辣香锅'];
+
+            // }
+            // else {
+            //     // 没要求
+            //     foods = [
+            //         'hpc', 'bbq', '嘎巴锅', '佰兴大肘子', '烤鱼', '火锅', '苏龙龙水煮肉片', '石板', '七分饱', '张亮麻辣烫', '干锅外卖', '町上寿司', '莫斯汉堡', 'kfc', '金拱门', '炸鸡', '吉祥馄饨', '牛培堡', '必胜客', '炸鸡',
+            //         '小红帽', '杂酱面', '苏龙龙', '0090', '铁板小炒', '煮馍', '螺狮粉', '冒菜', '麻辣香锅', '南区自选', '学府面馆', '清真炒鸡'
+            //     ];
+            // }
+
+
+            const allFoods = [
+                // 夯爆了
+                { name: 'hpc', tags: ['shitang', 'haode'] },
+                { name: 'bbq', tags: ['shitang', 'haode'] },
+                { name: '嘎巴锅', tags: ['shitang', 'haode'] },
+                { name: '佰兴大肘子', tags: ['shitang', 'haode'] },
+                { name: '烤鱼', tags: ['shitang', 'haode'] },
+                { name: '火锅', tags: ['shitang', 'haode'] },
+                { name: '苏龙龙水煮肉片', tags: ['haode'] },
+                //人上人
+                { name: '石板', tags: ['shitang', 'youke'] },
+                { name: '七分饱', tags: ['shitang', 'youke'] },
+                { name: '张亮麻辣烫', tags: ['shitang', 'youke'] },
+                { name: '干锅外卖', tags: ['shitang', 'youke'] },
+                { name: '町上寿司', tags: ['shitang', 'youke'] },
+                { name: '莫斯汉堡', tags: ['shitang', 'youke'] },
+                { name: 'kfc', tags: ['shitang', 'youke'] },
+                { name: '金拱门', tags: ['shitang', 'youke'] },
+                { name: '炸鸡', tags: ['shitang', 'youke'] },
+                { name: '吉祥混沌', tags: ['shitang', 'youke'] },
+                { name: '牛培堡', tags: ['shitang', 'youke'] },
+                { name: '必胜客', tags: ['shitang', 'youke'] },
+                { name: '冒菜', tags: ['shitang'] },
+                { name: '麻辣香锅', tags: ['shitang'] },
+                //npc
+                { name: '小红帽', tags: ['youke'] },
+                { name: '杂酱面', tags: ['youke'] },
+                { name: '苏龙龙', tags: ['youke'] },
+                { name: '0090', tags: ['youke'] },
+                { name: '铁板小炒', tags: ['youke'] },
+                { name: '煮馍', tags: ['youke'] },
+                { name: '螺狮粉', tags: ['youke'] },
+                { name: '麻辣香锅', tags: ['youke'] },
+                { name: '南区自选', tags: ['youke'] },
+                { name: '学府面馆', tags: ['youke'] },
+                { name: '清真炒鸡', tags: ['youke'] },
+            ];
+            const foods = [];
+            if (youkeValue && haodeValue) {
+                foods.push('想的倒挺美');
+            } else {
+                allFoods.forEach(food => {
+                    if (((youkeValue && food.tags.includes('youke')) || !youkeValue) &&
+                        ((haodeValue && food.tags.includes('haode')) || !haodeValue) &&
+                        ((shitangValue && food.tags.includes('shitang')) || !shitangValue)) {
+                        foods.push(food.name);
+                    }
+                });
             }
-            else {
-                foods = [
-                    'hpc','bbq','嘎巴锅','佰兴大肘子','烤鱼','火锅','苏龙龙水煮肉片','石板','七分饱','张亮麻辣烫','干锅外卖','町上寿司','莫斯汉堡','kfc','金拱门','炸鸡','吉祥馄饨','牛培堡','必胜客','炸鸡',
-                    '小红帽','杂酱面','苏龙龙','0090','铁板小炒','煮馍','螺狮粉','冒菜','麻辣香锅','南区自选','学府面馆','清真炒鸡'
-                ];
-            }
-    
+            console.log(foods);
             resultElement.classList.add('animating');
             let counter = 0;
             const interval = setInterval(() => {
@@ -321,7 +382,7 @@
                     clearInterval(interval);
                     const finalIndex = Math.floor(Math.random() * foods.length);
                     resultElement.textContent = foods[finalIndex];
-                    
+
                     setTimeout(() => {
                         resultElement.classList.remove('animating');
                         isAnimating = false;
@@ -333,7 +394,7 @@
             const body = document.body;
             const themeBtn = document.querySelector('.theme-toggle');
             body.classList.toggle('light-mode');
-            
+
             if (body.classList.contains('light-mode')) {
                 themeBtn.textContent = '🌙';
                 localStorage.setItem('theme', 'light');
@@ -342,11 +403,11 @@
                 localStorage.setItem('theme', 'dark');
             }
         }
-        window.addEventListener('DOMContentLoaded', function() {
+        window.addEventListener('DOMContentLoaded', function () {
             const savedTheme = localStorage.getItem('theme');
             const body = document.body;
             const themeBtn = document.querySelector('.theme-toggle');
-            
+
             if (savedTheme === 'light') {
                 body.classList.add('light-mode');
                 themeBtn.textContent = '🌙';
@@ -354,10 +415,10 @@
                 themeBtn.textContent = '☀️';
             }
         });
-        document.getElementById('myCheckbox').addEventListener('change', function() {
+        document.getElementById('myCheckbox').addEventListener('change', function () {
             const checkboxValue = this.checked;
         });
-        document.addEventListener('keydown', function(event) {
+        document.addEventListener('keydown', function (event) {
             if (event.code === 'Space') {
                 event.preventDefault();
                 randomFood();
@@ -365,4 +426,5 @@
         });
     </script>
 </body>
+
 </html>
